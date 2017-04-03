@@ -69,42 +69,17 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 10.71.191.242   srvsebclnx04.hadoop.local srvsebclnx04
 10.79.131.18    srvsebclnx05.hadoop.local srvsebclnx05
 
-[root@ip-10-79-133-7 ~]# nslookup
-> ip-10-79-131-18.ec2.internal
-Server:		172.16.0.23
-Address:	172.16.0.23#53
-
-Non-authoritative answer:
-Name:	ip-10-79-131-18.ec2.internal
-Address: 10.79.131.18
-> ip-10-71-191-242.ec2.internal
-Server:		172.16.0.23
-Address:	172.16.0.23#53
-
-Non-authoritative answer:
-Name:	ip-10-71-191-242.ec2.internal
-Address: 10.71.191.242
-> ip-10-180-35-164.ec2.internal
-Server:		172.16.0.23
-Address:	172.16.0.23#53
-
-Non-authoritative answer:
-Name:	ip-10-180-35-164.ec2.internal
-Address: 10.180.35.164
-> ip-10-179-235-113.ec2.internal
-Server:		172.16.0.23
-Address:	172.16.0.23#53
-
-Non-authoritative answer:
-Name:	ip-10-179-235-113.ec2.internal
-Address: 10.179.235.113
-> ip-10-79-133-7.ec2.internal
-Server:		172.16.0.23
-Address:	172.16.0.23#53
-
-Non-authoritative answer:
-Name:	ip-10-79-133-7.ec2.internal
-Address: 10.79.133.7
+[root@ip-10-79-131-18 ~]# getent hosts srvsebclnx01
+10.79.133.7     srvsebclnx01.hadoop.local srvsebclnx01
+[root@ip-10-79-131-18 ~]# getent hosts srvsebclnx02
+10.179.235.113  srvsebclnx02.hadoop.local srvsebclnx02
+[root@ip-10-79-131-18 ~]# getent hosts srvsebclnx03
+10.180.35.164   srvsebclnx03.hadoop.local srvsebclnx03
+[root@ip-10-79-131-18 ~]# getent hosts srvsebclnx04
+10.71.191.242   srvsebclnx04.hadoop.local srvsebclnx04
+[root@ip-10-79-131-18 ~]# getent hosts srvsebclnx05
+10.79.131.18    srvsebclnx05.hadoop.local srvsebclnx05
+[root@ip-10-79-131-18 ~]# getent hosts 10.79.133.7
 
 [root@ip-10-79-133-7 ~]# systemctl status  nscd.service 
 ? nscd.service - Name Service Cache Daemon
@@ -145,3 +120,21 @@ Apr 03 16:43:10 ip-10-79-133-7.ec2.internal ntpd[22586]: 0.0.0.0 c012 02 freq_se
 Apr 03 16:43:10 ip-10-79-133-7.ec2.internal ntpd[22586]: 0.0.0.0 c011 01 freq_not_set
 Apr 03 16:43:17 ip-10-79-133-7.ec2.internal ntpd[22586]: 0.0.0.0 c614 04 freq_mode
 
+[root@ip-10-79-133-7 ~]# ls -lahtr /usr/share/java/mysql-connector-java.jar
+-rw-r--r-- 1 root root 970K Apr  3 17:02 /usr/share/java/mysql-connector-java.jar
+
+[root@ip-10-79-133-7 ~]# systemctl status mariadb.service 
+? mariadb.service - MariaDB database server
+   Loaded: loaded (/usr/lib/systemd/system/mariadb.service; enabled; vendor preset: disabled)
+   Active: active (running) since Mon 2017-04-03 17:05:41 UTC; 27s ago
+  Process: 9772 ExecStartPost=/usr/libexec/mariadb-wait-ready $MAINPID (code=exited, status=0/SUCCESS)
+  Process: 9743 ExecStartPre=/usr/libexec/mariadb-prepare-db-dir %n (code=exited, status=0/SUCCESS)
+ Main PID: 9771 (mysqld_safe)
+   CGroup: /system.slice/mariadb.service
+           +- 9771 /bin/sh /usr/bin/mysqld_safe --basedir=/usr
+           +-10177 /usr/libexec/mysqld --basedir=/usr --datadir=/var/lib/mysql --plugin-dir=/usr/lib64/mysql/plugin --log-error=/var/log/mariadb/mariadb.log --...
+
+Apr 03 17:05:39 ip-10-79-133-7.ec2.internal systemd[1]: Starting MariaDB database server...
+Apr 03 17:05:39 ip-10-79-133-7.ec2.internal mysqld_safe[9771]: 170403 17:05:39 mysqld_safe Logging to '/var/log/mariadb/mariadb.log'.
+Apr 03 17:05:39 ip-10-79-133-7.ec2.internal mysqld_safe[9771]: 170403 17:05:39 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+Apr 03 17:05:41 ip-10-79-133-7.ec2.internal systemd[1]: Started MariaDB database server.
