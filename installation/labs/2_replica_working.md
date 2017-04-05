@@ -1,3 +1,4 @@
+```
 [root@ip-10-79-133-7 ~]# /usr/bin/mysql_secure_installation
 
 NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
@@ -103,3 +104,5 @@ Master_SSL_Verify_Server_Cert: No
   Replicate_Ignore_Server_Ids: 
              Master_Server_Id: 1
 1 row in set (0.00 sec)
+
+```

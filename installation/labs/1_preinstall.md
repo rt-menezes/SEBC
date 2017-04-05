@@ -1,3 +1,4 @@
+```
 [root@ip-10-79-133-7 ~]# cat /proc/sys/vm/swappiness
 1
 [root@ip-10-79-133-7 ~]# cat /etc/sysctl.conf
@@ -138,3 +139,4 @@ Apr 03 17:05:39 ip-10-79-133-7.ec2.internal systemd[1]: Starting MariaDB databas
 Apr 03 17:05:39 ip-10-79-133-7.ec2.internal mysqld_safe[9771]: 170403 17:05:39 mysqld_safe Logging to '/var/log/mariadb/mariadb.log'.
 Apr 03 17:05:39 ip-10-79-133-7.ec2.internal mysqld_safe[9771]: 170403 17:05:39 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
 Apr 03 17:05:41 ip-10-79-133-7.ec2.internal systemd[1]: Started MariaDB database server.
+```
