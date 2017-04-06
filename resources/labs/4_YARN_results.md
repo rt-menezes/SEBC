@@ -1,3 +1,4 @@
+```
 + MR=/opt/cloudera/parcels/CDH/lib/hadoop-0.20-mapreduce
 + HADOOP=/opt/cloudera/parcels/CDH/bin
 ++ date
@@ -268,3 +269,4 @@ Deleted /results/ts-10GB-12-3-4096
 ++ date
 + echo Testing loop ended on Tue Apr 4 23:58:44 UTC 2017
 Testing loop ended on Tue Apr 4 23:58:44 UTC 2017
+```
