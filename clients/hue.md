@@ -19,7 +19,6 @@
 ## <center> <a name="hue_design_goals">HUE Design & Goals</a>
 
 * Customizable service portal
-    * Customer success story: [RainStor Embraces HUE](http://rainstor.com/rainstor-embraces-hue/)
 * Three client authentication modes
 * Graphical browsing and reporting
 * Application UIs
@@ -31,11 +30,10 @@
 
 ## <center> Current Version & Resources
 
-* C5.9 ==> [Hue 3.11](http://gethue.com/category/3-11/)
+* C5.12 ==> [Hue 4.1]
     * Apache-licensed, not an ASF project
     * Ported to HDP, MapR, Pivotal, IBM Big Insights
 * [Online demo available](http://demo.gethue.com/)
-* Drives [Cloudera Live](http://www.cloudera.com/content/cloudera/en/products-and-services/cloudera-live.html)
 * Active blogging on new developments: [gethue.com](http://gethue.com)
 * Some [screencasts available](http://vimeo.com/search?q=gethue)
 
@@ -82,15 +80,6 @@
     * Mostly support for browsing jobs  
 * Hue offers [Oozie dashboards](http://demo.gethue.com/oozie/)
     * And [Workflow Managers](http://demo.gethue.com/oozie/list_workflows/)
-
----
-<div style="page-break-after: always;"></div>
-
-## <center> <a name="hue_search_console">Demos for Cloudera Search</a>
-
-* [Twitter Demo](http://demo.gethue.com/search/?collection=13)
-* [Yelp Demo](http://demo.gethue.com/search/?collection=10000002)
-* [Logfiles Demo](http://demo.gethue.com/search/?collection=10000003)
 
 ---
 <div style="page-break-after: always;"></div>

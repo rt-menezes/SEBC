@@ -18,7 +18,7 @@
   * Submit only your own work!
 * Update your GitHub repo often -- don't wait until the end!
 * If you break your cluster, or your cluster breaks you:
-  * Tell an instructor (`mfernest` or `rsiwicki`)
+  * Tell an instructor (`silastailer`)
   * Review the work you have pushed to GitHub
   * Create a new Issue to describe what you think happened
 
@@ -28,7 +28,7 @@
 ## <center> Challenge Setup
 
 * Create the Issue `Challenges Setup`
-* Make sure you have both `mfernest` and `rsiwicki` as Collaborators
+* Make sure you have `silastailer` as Collaborators
 * Assign the Issue to yourself and label it `started`
 * In the file `challenges/labs/0_setup.md`:
   * List the cloud provider you are using (AWS, GCE, Azure, other)
@@ -37,13 +37,13 @@
   * Demonstrate the disk capacity available on each node is >= 30 GB
   * List the command and output for `yum repolist enabled` 
 * Add the following Linux accounts to all nodes
-  * User `neymar` with a UID of `2010`
-  * User `ronaldo` with a UID of `2016`
-  * Create the group `barca` and add `ronaldo` to it
-  * Create the group `merengues` and add `neymar` to it
-* List the `/etc/passwd` entries for `neymar` and `ronaldo` 
+  * User `yoda` with a UID of `2010`
+  * User `sideous` with a UID of `2016`
+  * Create the group `jedi` and add `yoda` to it
+  * Create the group `sith` and add `sideous` to it
+* List the `/etc/passwd` entries for `yoda` and `sideous` 
   * Not the entire file!
-* List the `/etc/group` entries for `barca` and `merengues` 
+* List the `/etc/group` entries for `sith` and `sideous` 
   * Not the entire file!
 * Push these updates to your GitHub repo
 * Label your Issue `submitted` 
@@ -79,7 +79,7 @@
 ---
 <div style="page-break-after: always;"></div>
 
-## <center> Challenge 2: Install Cloudera Manager 5.9.x
+## <center> Challenge 2: Install Cloudera Manager 5.12.x
 
 * Create the Issue `Install CM`
 * Assign yourself to the Issue and label it `started`
@@ -143,14 +143,14 @@
 * Assign the issue to yourself and label it `started`
 * Install an MIT KDC on the same node as the CM server
   * Name your realm after your GitHub handle
-  * Use `ES` as a suffix
-  * For example: `RSIWICKI.ES`
-* Create Kerberos principals for `neymar`, `ronaldo`, and `cloudera-scm`
+  * Use `LOCAL` as a suffix
+  * For example: `CLOUDERA.LOCAL`
+* Create Kerberos principals for `yoda`, `sideous`, and `cloudera-scm`
   * Grant `cloudera-scm` the privileges needed to create principals and generate keytabs
 * Enable Kerberos for the cluster
-* Run the `terasort` program as `neymar` using the output target `/user/neymar/tsort640m`
+* Run the `terasort` program as `yoda` using the output target `/user/yoda/tsort640m`
   * Copy the command and full output to `challenges/labs/5_terasort.md`
-* Run the Hadoop `pi` program as the user `ronaldo`
+* Run the Hadoop `pi` program as the user `sideous`
   * Copy the command and full output to `challenges/labs/5_pi.md`
 *  Copy the **text files** stored in `/var/kerberos/krb5kdc/` to your repo:
     * Add the prefix `5_` and the suffix `.md` to the original file name
@@ -179,9 +179,8 @@
 ## <center> Once you finish, or when time is called:
 
 * Commit any outstanding changes from your repo to GitHub
-* Notify mfernest@cloudera.com that you have stopped pushing to your repo
+* Notify silas@semantix.com.br that you have stopped pushing to your repo
   * Continue working, if you like, after sending this note
-* Please fill out [this survey form](https://goo.gl/forms/pmHeHx03zRu3cnlc2)
 * Anything else you'd like to express about the class?
   * Please add your comments to `labs/7_feedback_final.md` -- don't forget to commit them!
 * Now take it easy. You've worked very hard all week. Safe travels!
