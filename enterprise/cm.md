@@ -66,9 +66,7 @@
 
 * [Philip Zeyliger's blog article on CM's design and operation](http://blog.cloudera.com/blog/2013/07/how-does-cloudera-manager-work/)  
 * CM uses [service descriptors](http://cloudera.github.io/cm_api/docs/cm-concepts/) that evolve as features are added
-    * [Primer for CM 4](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM4Ent/latest/Cloudera-Manager-Introduction/cmi_primer.html)
     * [Primer for CM 5](http://www.cloudera.com/documentation/enterprise/latest/topics/cm_intro_api.html)
-* You can compare the API for [4.7](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM4Ent/latest/Cloudera-Manager-Introduction/cmi_api.html) (v5), with [5.x](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Introduction/cm5i_api.html), (v6, v7)
 * Example terms
     * Canary: a smoke test for predictive failure
     * Safety valve: edit window to hack in missing/misspelled configuration properties
@@ -127,7 +125,6 @@ Enter an object type in the search bar
 * Use the Audits tab to find past events
     * Available in home, service, role, and host instance pages
     * Time range filter from last 30m to last 30d 
-    * [Several filters available](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Diagnostics-Guide/cm5dg_audits.html)
 * Logs can also be downloaded
 
 ---
@@ -136,9 +133,9 @@ Enter an object type in the search bar
 ## <center> <a name="cm_monitors"/>Monitoring services and resources</a>
 
 * Type `monitor` in the Configuration tab search of any service
-* [Eight general types ](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Diagnostics-Guide/cm5dg_monitoring_settings.html)
-    * [Health for services, roles](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Diagnostics-Guide/cm5dg_service_monitoring.html)
-    * [Resource management](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Diagnostics-Guide/cm5dg_resource_management_monitoring.html)
+* [Eight general types ]
+    * [Health for services, roles](https://www.cloudera.com/documentation/enterprise/5-12-x/topics/cm_dg_service_monitoring.html)
+    * [Resource management](https://www.cloudera.com/documentation/enterprise/5-12-x/topics/cm_dg_resource_management_monitoring.html)
     * Directory free space
     * YARN Applications
         * Visibility settings
@@ -150,7 +147,7 @@ Enter an object type in the search bar
 ---
 <div style="page-break-after: always;"></div>
 
-## <center> <a name="cm_alerts">[Adding Alerts](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Diagnostics-Guide/cm5dg_monitoring_settings.html#concept_lmd_tss_1l_unique_1)</a>
+## <center> <a name="cm_alerts">[Adding Alerts]</a>
 
 * Administration -> Alerts
 * Delivers to email or as SNMP traps
@@ -169,8 +166,8 @@ Enter an object type in the search bar
 * Cover services, roles, and hosts
 * Two types
     * Pass-fail
-    * ["Metric"](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM4Ent/4.7.1/Cloudera-Manager-Metrics/Cloudera-Manager-Metrics.html) - set to some numeric threshold
-    * [Complete health tests list for CM5](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Health-Tests/Cloudera-Manager-Health-Tests.html#xd_583c10bfdbd326ba--43d5fd93-1410993f8c2--7ed7)
+    * ["Metric"](https://www.cloudera.com/documentation/enterprise/5-12-x/topics/cm_metrics.html) - set to some numeric threshold
+    * [Complete health tests list for CM5](https://www.cloudera.com/documentation/enterprise/5-12-x/topics/cm_ht.html)
 * Condition may be <font color="green">Good</font>, <font color="orange">Concerning</font>, or <font color="red">Bad</font>
     * Service results may be "rolled up" from subordinate tests (roles, instances)
         * A single Bad or Concerning result affects the whole
@@ -185,9 +182,9 @@ Enter an object type in the search bar
 * Charts are searchable by type or name
     * Try "canary duration"
 * Chart builder and dashboard editor: CM -> Charts
-    * [Documentation](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Diagnostics-Guide/cm5dg_chart_time_series_data.html)
-    * A user's collection of charts is a [view](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM4Ent/4.7.1/Cloudera-Manager-Diagnostics-Guide/cmdg_views.html) in 4.x, a [dashboard](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Diagnostics-Guide/cm5dg_dashboards.html) in 5.x
-* [Metric aggregations](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Diagnostics-Guide/cm5dg_metric_aggregation.html)
+    * [Documentation](https://www.cloudera.com/documentation/enterprise/5-12-x/topics/cm_dg_chart_time_series_data.html)
+    * A user's collection of charts is a [dashboard](https://www.cloudera.com/documentation/enterprise/5-12-x/topics/cm_dg_dashboards.html) in 5.x
+* [Metric aggregations](https://www.cloudera.com/documentation/enterprise/5-12-x/topics/cm_dg_metric_aggregation.html)
     * metric-timestamp pair + aggregating function (min, max, avg, and stddev)
     * Sampling interval is fixed by the monitor (Service or Host)
 * Some 'cross-entity' aggregations are available
@@ -199,12 +196,12 @@ Enter an object type in the search bar
 
 ## <center> <a name="cm_property_settings"> Managing property settings</a>
 
-* [CDH properties by version](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Configuration-Properties/Cloudera-Manager-Configuration-Properties.html)
+* [CDH properties by version](https://www.cloudera.com/documentation/enterprise/5-12-x/topics/cm_props_top.html)
     * Organized by service
-* [Host configuration properties](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Configuration-Properties/cm5config_host.html)
+* [Host configuration properties](https://www.cloudera.com/documentation/enterprise/properties/5-12-x/topics/cm_props_host.html)
     * System services, directory free space, etc.
-* [CM Server properties](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Configuration-Properties/cm5config_cmserver.html)
-    * [Cloudera Management Service Properties](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Configuration-Properties/cm5config_mgmtservice.html)
+* [CM Server properties](https://www.cloudera.com/documentation/enterprise/properties/5-12-x/topics/cm_props_cmserver.html)
+    * [Cloudera Management Service Properties](https://www.cloudera.com/documentation/enterprise/properties/5-12-x/topics/cm_props_mgmtservice.html)
 
 ---
 <div style="page-break-after: always;"></div>
@@ -212,8 +209,7 @@ Enter an object type in the search bar
 ## <center> <a name="cm_api_sampler">Sample CM API calls</a>
 
 * Tutorials available for each version
-  * [Version 13](http://cloudera.github.io/cm_api/apidocs/tutorial.html)
-  * CM versions are [mapped to API versions here](http://cloudera.github.io/cm_api/docs/releases/)
+  * [Version 16](http://cloudera.github.io/cm_api/)
 * Plenty of examples
   * [With curl](http://cloudera.github.io/cm_api/docs/quick-start/)
   * [Using Python](http://cloudera.github.io/cm_api/docs/python-client/)
@@ -259,9 +255,9 @@ _Use CM to answer the following questions. For some questions, search will help 
 ## <center> CM Lab
 ## <center> Create a Custom Dashboard
 
-* Create a new CM user `minotaur` in your cluster
-* Assign the Configurator role  to `minotaur`
-* Create a dashboard for `minotaur` and add any four charts  
+* Create a new CM user `tarkin` in your cluster
+* Assign the Configurator role  to `tarkin`
+* Create a dashboard for `tarkin` and add any four charts  
 * Put a screenshot of the new dashboard in the file `enterprise/labs/1_user_dashboard.png`
 
 ---
@@ -273,7 +269,7 @@ _Use CM to answer the following questions. For some questions, search will help 
 * Browse or use `curl` on the endpoint `./api/v2/cm/deployment`
   * Store the output in `enterprise/labs/2_cluster_deployment.md`
   * Code-format this output for readability
-* Follow the [tutorial for API v12](http://cloudera.github.io/cm_api/apidocs/v12/tutorial.html)
+* Follow the [tutorial for API v12](http://cloudera.github.io/cm_api/apidocs/v18/tutorial.html)
 * Write `curl` statements that stop, start, and check the current state of your Hive service.
   * Add these statements and their output to `enterprise/labs/3_api_hive_state.md`
 
@@ -283,7 +279,7 @@ _Use CM to answer the following questions. For some questions, search will help 
 ## <center> CM Lab
 ## <center> Upgrade Cloudera Manager
 
-* Upgrade to the latest **C5.9** release
+* Upgrade to the latest **C5.12** release
   * Use the [documentation here](http://www.cloudera.com/documentation/enterprise/latest/topics/cm_ag_ug_cm5.html)
 * Use the API on the command line to:
   * Report the latest available version of the API
