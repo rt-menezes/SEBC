@@ -49,7 +49,7 @@
 
 ## <center> <a name="hdfs_namenode_ha"/> NameNode HA
 
-* CM 5 offers a [NameNode HA wizard](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Managing-Clusters/cm5mc_hdfs_hi_avail.html)
+* CM 5 offers a [NameNode HA wizard](https://www.cloudera.com/documentation/enterprise/latest/topics/cdh_hag_hdfs_ha_enabling.html)
     * `HDFS -> Actions -> Enable High Availability`
     * [Locate the JournalNodes](http://www.cloudera.com/documentation/enterprise/latest/topics/cdh_hag_hdfs_ha_enabling.html#cmug_topic_5_12_1)
     * [Know what the Quorum Journal Manager and Zookeeper do] (https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithQJM.html)
@@ -60,8 +60,8 @@
 ## <center> <a name="hdfs_smoke_testing"/> HDFS Smoke Testing
 
 * Following software installation, test hardware and network for failure
-* [The terasort suite](http://www.michael-noll.com/blog/2011/04/09/smoke-testing-and-stress-testing-an-hadoop-cluster-with-terasort-testdfsio-nnbench-mrbench/#terasort-benchmark-suite) is ideal for this: easy to apply and simple to monitor.
-    * Some people recommend [TestDFSIO, nnbench, mrbench](http://www.michael-noll.com/blog/2011/04/09/smoke-testing-and-stress-testing-an-hadoop-cluster-with-terasort-testdfsio-nnbench-mrbench/#testdfsio) -- you have choices.
+* [The terasort suite](http://www.michael-noll.com/blog/2011/04/09/benchmarking-and-stress-testing-an-hadoop-cluster-with-terasort-testdfsio-nnbench-mrbench/#terasort-benchmark-suite) is ideal for this: easy to apply and simple to monitor.
+    * Some people recommend [TestDFSIO, nnbench, mrbench](http://www.michael-noll.com/blog/2011/04/09/benchmarking-and-stress-testing-an-hadoop-cluster-with-terasort-testdfsio-nnbench-mrbench/#testdfsio) -- you have choices.
 * Most important: corroborate performance with system tools, such as `iostat`.
 
 ---
