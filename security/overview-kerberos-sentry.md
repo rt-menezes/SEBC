@@ -247,17 +247,6 @@
 ---
 <div style="page-break-after: always;"></div>
 
-## <center> Security Lab: Implement TLS Level 1 Security
-
-* This is a [straightforward procedure](http://www.cloudera.com/documentation/enterprise/latest/topics/how_to_configure_cm_tls.html)
-* Copy the `config.ini` file of the agent on any host to `security/labs/config.ini.md`
-    * Code-format the contents
-* Use a screen capture of CM to show TLS level 1 is enabled
-    * Put the capture in `security/labs/tls-level-one.png`
-
----
-<div style="page-break-after: always;"></div>
-
 ## <center> Security Labs Preparation
 
 Before you start:
