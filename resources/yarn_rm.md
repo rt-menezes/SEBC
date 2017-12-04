@@ -10,23 +10,7 @@
 
 * <a href="#mrv2_review">YARN/MRv2 Design</a>
 * <a href="#YARN_overview">What YARN Does</a>
-* <a href="#migrating_mrv1_mrv2">Migrating from MRv1 to YARN</a>
 * <a href="#RM_overview">Resource Management Overview</a>
-
----
-<div style="page-break-after:always;"></div>
-
-## <center> The MapReduce service (MRv1)
-
-* JobTracker responsibilities
-    * Schedule jobs
-    * Monitor TaskTracker processes
-    * Update jobs status
-    * Cache and serve recent job history
-* TaskTracker responsbilities
-    * Provide a pre-determined number of mapper and reducer slots
-    * Slots are child JVM processes
-    * Slot count per node is based on cores, "spindles", and <i>workload estimate</i>
 
 ---
 <div style="page-break-after: always;"></div>
@@ -95,20 +79,6 @@
 ---
 <div style="page-break-after: always;"></div>
 
-## <center> <a name="migrating_mrv1_mrv2"/> Migrating MRv1-oriented applications to MRv2
-
-* YARN is backward-compatible to MapReduce
-  * Doesn't mean MRv1 programs are YARN-aware
-* Read <a href="http://blog.cloudera.com/blog/2014/04/apache-hadoop-yarn-avoiding-6-time-consuming-gotchas/">Jeff Bean's blog post on common gotchas</a>, including:
-    * Containers are not a drop-in replacement for slots
-    * Hard to make an [apples-to-apples performance comparison] (http://blog.cloudera.com/blog/2014/02/getting-mapreduce-2-up-to-speed/)
-    * JVM heap calculations are different
-    * The RM has one log for all process engines, not just MRv2
-        * Messages are more generic
-
----
-<div style="page-break-after: always;"></div>
-
 ## <center> <a name="RM_overview"/>Resource Management for the Cluster
 
 <p><i>Managing resources cluster-wide is divided into three areas</i></p>
@@ -129,7 +99,7 @@
 
 * Assures each service a percentage of cluster resources
   * Enforced under contention
-* Cloudera Manager implements this through [Linux Control Groups](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Managing-Clusters/cm5mc_cgroups.html)
+* Cloudera Manager implements this through [Linux Control Groups](https://www.cloudera.com/documentation/enterprise/latest/topics/cm_mc_cgroups.html)
   * Resources controls are limited to Linux support
   * Could support CPU, memory, disk I/O, and network limits, if available
   * `Cluster > ClusterName > Static Service Pools`
@@ -139,9 +109,9 @@
 
 ## <center> <a name="rm_admission_control"/> Regulating YARN and Impala demands
 
-* [Admission control for Impala queries](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH5/latest/Impala/Installing-and-Using-Impala/ciiu_admission.html)
+* [Admission control for Impala queries](https://www.cloudera.com/documentation/enterprise/latest/topics/impala_admission.html)
   * On by default for Impala 1.3 and later
-* Cloudera Manager supports [Dynamic Resource Pools](http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Managing-Clusters/cm5mc_resource_pools.html)
+* Cloudera Manager supports [Dynamic Resource Pools](https://www.cloudera.com/documentation/enterprise/latest/topics/cm_mc_resource_pools.html)
     * A <i>configuration set</i> is used to define a client group (e.g., prod, mktg, batch, queries)
     * <i>Scheduling rules</i> inform the configuration set's policy
     * Pool resources are determined by user permissions, query count, queue size, memory demand
