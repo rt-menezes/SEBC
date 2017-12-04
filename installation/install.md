@@ -287,9 +287,9 @@ or [here for MySQL](http://www.cloudera.com/documentation/enterprise/latest/topi
 <div style="page-break-after: always;"></div>
 
 ## <center> CM/CDH Install Lab
-## <center> Path B install using Cloudera 5.9.x
+## <center> Path B install using Cloudera 5.12.x
 
-[The full rundown is here](https://www.cloudera.com/documentation/enterprise/5-9-x/topics/cm_ig_install_path_b.html)
+[The full rundown is here](https://www.cloudera.com/documentation/enterprise/5-12-x/topics/cm_ig_install_path_b.html)
 
 Notice that you must configure the correct repo. The default is always the latest available version (5.10).
 
@@ -321,16 +321,7 @@ Ensure you adhere to the following requirements:
 * Mark your Issue `submitted`
 
 ---
-<div style="page-break-after: always;"></div>
 
-## <center> Cluster install: For Further Reading
-## <center> <a name="scripted_install_lab"/>Auto-deployment
-
-* If you are interested to learn about automating installs:
-    * Fork/clone [Justin Hayes' auto-deploy project](https://github.com/justinhayes/cm_api/tree/master/python/examples/auto-deploy)
-* No submissions are needed; you can browse this repository as you wish.
-
----
 <div style="page-break-after: always;"></div>
 
 ## <center> <a name="cm_cdh_key_points"/> Summary Points
