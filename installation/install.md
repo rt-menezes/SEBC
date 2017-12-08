@@ -76,7 +76,7 @@
 ## <center> <a name="cm_install_logging"/>Installation Steps with Path A []()
 
 * Exits if SELinux is enabled
-* Installs YUM repos for [CM packages:](http://archive.cloudera.com/cm5/redhat/5/x86_64/cm/5/RPMS/x86_64/)
+* Installs YUM repos for [CM packages:](http://archive.cloudera.com/cm5/redhat/7/x86_64/cm/5/RPMS/x86_64/)
  * Cloudera-packaged PostgreSQL server
  * Oracle JDK 
     * Cloudera does not test/certify against OpenJDK
@@ -94,7 +94,7 @@
 
 * Review key hardware, OS, disk, and network/kernel settings
 * Install supported Oracle JDK
-* Install/configure [database server](https://www.cloudera.com/documentation/enterprise/5-9-x/topics/cm_ig_installing_configuring_dbs.html)
+* Install/configure [database server](https://www.cloudera.com/documentation/enterprise/5-12-x/topics/cm_ig_installing_configuring_dbs.html)
 * Create databases & grant CM/CDH services access to them
     * Accessing MySQL/MariaDB or Oracle requires a JDBC connector
 * CM will then
@@ -203,7 +203,7 @@ Parcels are [CM-specific code blobs](https://github.com/cloudera/cm_ext/wiki/Par
 * For GCE, use `n1-highmen-2` nodes
   * Do not use preemptible instances
 * Make sure the AMI you choose is a Cloudera-supported OS
-  * These platforms are supported for [CM 5.9.0](http://www.cloudera.com/downloads/manager/5-9-0.html)
+  * These platforms are supported for [CM 5.12.0](https://www.cloudera.com/downloads/manager/5-12-0.html)
 * Use one instance to host Cloudera Manager server and edge/client-facing services
   * This includes Hue and Apache Oozie
 
@@ -253,7 +253,7 @@ or [here for MySQL](http://www.cloudera.com/documentation/enterprise/latest/topi
     * Enable the repo to install MySQL 5.5
     * Install the <code>mysql</code> package on all nodes
     * Install <code>mysql-server</code> on the server and replica nodes
-    * Download and copy [the JDBC connector](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-binary-installation.html) to all nodes.
+    * Download and copy [the JDBC connector](https://dev.mysql.com/downloads/connector/j/) to all nodes.
 2. You should not need to build a <code>/etc/my.cnf</code> file to start your MySQL server
     * You will have to modify it to support replication. Check MySQL documentation.<p>
 3. Start the <code>mysqld</code> service.
@@ -265,16 +265,18 @@ or [here for MySQL](http://www.cloudera.com/documentation/enterprise/latest/topi
     e. Refresh privileges in memory<br>
     f. Refreshes the <code>mysqld</code> service<p>
 5. On the master MySQL node, grant replication privileges for your replica node:<br>
-    a. Log in with <code>mysql -u ... -p</code> <br>
-    b. Note the FQDN of your replica host.<br>
-    c. <code>mysql> **GRANT REPLICATION SLAVE ON \*.\* TO '*user*'@'*FQDN*' IDENTIFIED BY '*password*';**</code><br>
-    d. <code>mysql> **SET GLOBAL binlog_format = 'ROW';** </code><br>
-    e. <code>mysql> **FLUSH TABLES WITH READ LOCK;</code>**<p>
+	a. Modify the file <code>/etc/my.cnf</code> inserting the tag <code>server-id</code> at the beginning and set its value to 1 <code>server-id = 1</code><br>
+    b. Log in with <code>mysql -u ... -p</code> <br>
+    c. Note the FQDN of your replica host.<br>
+    d. <code>mysql> **GRANT REPLICATION SLAVE ON \*.\* TO '*user*'@'*FQDN*' IDENTIFIED BY '*password*';**</code><br>
+    e. <code>mysql> **SET GLOBAL binlog_format = 'ROW';** </code><br>
+    f. <code>mysql> **FLUSH TABLES WITH READ LOCK;</code>**<p>
 6. In a second terminal session, log into the MySQL master and show its  status:<br>
     a. <code>mysql> **SHOW MASTER STATUS;**</code><br>
     b. Make note of the file name and byte offset. The replica needs this info to sync to the master.<br>
     c. Logout of the second session; remove the lock on the first with <code>mysql> **UNLOCK TABLES;**</code><p>
 7. Login to the replica server and configure a connection to the master:<br>
+	Modify the file <code>/etc/my.cnf</code> inserting the tag <code>server-id</code> at the beginning and set its value to 2 <code>server-id = 2</code>.<br>
     <code>mysql> **CHANGE MASTER TO**<br> **MASTER_HOST='*master host*',**<br> **MASTER_USER='*replica user*',**<br> **MASTER_PASSWORD='*replica password*',**<br> **MASTER_LOG_FILE='*master file name*',**<br> **MASTER_LOG_POS=*master file offset*;**</code><p>
 8. Initiate slave operations on the replica<br>
     a. <code>mysql> **START SLAVE;**</code><br>
@@ -291,7 +293,11 @@ or [here for MySQL](http://www.cloudera.com/documentation/enterprise/latest/topi
 
 [The full rundown is here](https://www.cloudera.com/documentation/enterprise/5-12-x/topics/cm_ig_install_path_b.html)
 
-Notice that you must configure the correct repo. The default is always the latest available version (5.10).
+Create MySQL JDBC connector folder <code>mkdir -p /usr/share/java/</code>, then copy the connector to the destination folder.
+
+[Schema Preparation for Cloudera Manager Server Database](https://www.cloudera.com/documentation/enterprise/5-12-x/topics/cm_ig_installing_configuring_dbs.html#concept_i2r_m3m_hn__example_fsj_cyp_bm)
+
+Notice that you must configure the correct repo. The default is always the latest available version (5.13).
 
 Ensure you adhere to the following requirements:
 
